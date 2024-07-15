@@ -49,6 +49,3 @@ The SDK initialization includes error handling for common issues, such as failed
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
-```
-
-This README provides a basic overview of your project, including setup instructions, usage guidelines, and contribution steps. You may want to expand on certain sections or add more details specific to your project's structure and requirements.
