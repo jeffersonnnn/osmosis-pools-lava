@@ -11,7 +11,7 @@ async function initializeLavaSDK() {
       lavaSDK = await LavaSDK.create({
         badge: {
           badgeServerAddress: 'https://badges.lavanet.xyz',
-          projectId: projectId,
+          projectId,
         },
         chainIds: ['osmosis-1'],
         geolocation: '2',

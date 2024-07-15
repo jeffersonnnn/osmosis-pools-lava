@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Osmosis Pools Lava Integration
 
-## Getting Started
+This project integrates the Lava SDK to fetch and display Osmosis pool data.
 
-First, run the development server:
+## Setup
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+1. Clone the repository
+2. Install dependencies:
+   ```
+   npm install
+   ```
+3. Set up environment variables:
+   Create a `.env` file in the root directory and add:
+   ```
+   LAVA_PROJECTID=your_lava_project_id
+   ```
+   Replace `your_lava_project_id` with your actual Lava project ID.
+
+## Usage
+
+The `lavaSDK.ts` file initializes the Lava SDK with the provided project ID. It exports two items:
+
+- `initializeLavaSDK`: An async function that creates and returns the Lava SDK instance.
+- `lavaSDK`: The SDK instance (note: this may be undefined until `initializeLavaSDK` is called).
+
+To use the SDK in your application:
+
+```typescript
+import { initializeLavaSDK } from '../utils/lavaSDK';
+
+async function fetchData() {
+  const sdk = await initializeLavaSDK();
+  // Use sdk to make API calls
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Error Handling
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The SDK initialization includes error handling for common issues, such as failed badge fetching. Check the console for detailed error messages if you encounter any problems.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Contributing
 
-## Learn More
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-To learn more about Next.js, take a look at the following resources:
+## License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project is licensed under the MIT License - see the LICENSE file for details.
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This README provides a basic overview of your project, including setup instructions, usage guidelines, and contribution steps. You may want to expand on certain sections or add more details specific to your project's structure and requirements.
